@@ -13,12 +13,12 @@ try:
         newbox = WebDriverWait(driver, 300, poll_frequency=0.001).until(
             EC.presence_of_element_located((By.CLASS_NAME, "css-19b5rdt"))
         )
-        newboxes = driver.find_elements_by_class_name("css-19b5rdt")
-        entries = {}
-        for element in newboxes:
-            entries[element.text] = element
+        newboxes = {
+            element.text: element
+            for element in driver.find_elements_by_class_name("css-19b5rdt")
+        }
         for counter in range(1, len(newboxes) + 1):
-           entries[str(counter)].click() 
-        
+            newboxes[str(counter)].click()
+
 finally:
     driver.quit()
