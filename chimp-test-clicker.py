@@ -17,12 +17,8 @@ try:
         entries = {}
         for element in newboxes:
             entries[element.text] = element
-        counter = 1
-        while counter < len(newboxes):
-            for element in newboxes:
-                if int(element.text) == counter:
-                    element.click()
-                    counter += 1
-                
+        for counter in range(1, len(newboxes) + 1):
+           entries[str(counter)].click() 
+        
 finally:
     driver.quit()
