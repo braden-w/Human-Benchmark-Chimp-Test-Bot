@@ -13,10 +13,10 @@ try:
         # Use box number key in dictionary as lookup from 1 to n
         for counter in range(1, len(newboxes) + 1):
             newboxes[str(counter)].click()
-        # try:
-        #     driver.find_element_by_class_name("css-qm0ri0").click()
-        # except:
-        #     continue
+        try:
+            driver.find_element_by_class_name("css-qm0ri0").click()
+        except:
+            continue
 
 finally:
     driver.quit
